@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+input{
+	margin-top: 10px;
+}
+.btn{
+	width:220px;
+}
+form{
+	width: 240px;
+	height: 200px;
+	text-align: right;
+}
+div{
+	text-align: left;
+	padding-left: 20px;
+}
+</style>
+</head>
+<body>
+ <form action="Chapter5_1Servlet" method="post">        
+            <label>用户名：</label><input type="text" name="username" id="username" /><br>
+            <label>密码：</label><input type="text" name="password" id="password"/><br>
+            <div>
+            <input type="checkbox" name="remember" value="user_pw" id="cb" >记住密码<br>
+            </div>
+            <input type="submit" class="btn" value="提交" "/>
+ </form>
+ <script>
+window.onload=function(){
+	xmlhttp=new XMLHttpRequest();
+	if (window.XMLHttpRequest){
+	  // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+	  xmlhttp=new XMLHttpRequest();
+	  }else{
+	  // IE6, IE5 浏览器执行代码
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	  xmlhttp.open("GET","Chapter5_1Servlet?mode=1",true);
+	  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded"); 
+	  xmlhttp.send();
+	  xmlhttp.onreadystatechange=function(){		
+		if (xmlhttp.readyState==4 && xmlhttp.status==200){
+			var Text=xmlhttp.responseText.split("/");
+			var username=Text[0];
+ 			var password=Text[1];
+ 			document.getElementById("username").value=username;
+ 		    document.getElementById("password").value=password;
+ 		    if(xmlhttp.responseText!="/"){
+ 		    document.getElementById("cb").checked=true;
+ 		    }
+		}
+	}
+ };
+ </script>
+</body>
+</html>

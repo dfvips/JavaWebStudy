@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style>
+		p{
+			text-align: center;
+		}
+		div{
+			width: 100%;
+		}
+	</style>
+	<script>
+		function creatTable(){
+		    rows=document.getElementById('hang').value;
+		    cols=document.getElementById('lie').value;
+		    if(rows==""||cols==""||rows=="0"||cols=="0"){
+		    	return false;
+		    }
+		    else{
+		    div1=document.getElementById('mytable');
+		    // alert(rows+'\n'+cols)
+		    var tab='<h1 style="text-align:center;">乘法表</h1>';
+		    	tab+="<table style='border=1px;text-align:center;margin:0 auto;'>";
+		    for(var i=0;i<rows;i++){
+		        tab+='<tr>'
+		        for(var j=0;j<cols;j++){
+		        	if(parseInt(rows)<parseInt(cols)&&i<=j){
+		            tab+="<td style='border:1px #000000 solid;'>"+(i+1)+"x"+(j+1)+"="+((i+1)*(j+1))+"</td>"
+		            }else if(parseInt(cols)<=parseInt(rows)&&j<=i){
+		            tab+="<td style='border:1px #000000 solid;'>"+(i+1)+"x"+(j+1)+"="+((i+1)*(j+1))+"</td>" 	
+		            }else{
+		            tab+="<td style='border:1px #000000 solid;'>&nbsp;</td>" 
+		            }
+		        };
+		         tab+='</tr>'
+		    };    
+		    tab+='</table>';
+		    div1.innerHTML=tab;
+		    }
+}
+</script>
+</head>
+<body>
+	<div id="mytable"></div>
+	<p>行：<input type="number" value="" id="hang" min="1" required="required" placeholder="请输入大于0的数字"/>&nbsp;
+	   列：<input type="number" value="" id="lie" min="1" required="required" placeholder="请输入大于0的数字"/>
+		  <input type="submit" value="提交" onclick="creatTable();"> </p>
+</body>
+</html>

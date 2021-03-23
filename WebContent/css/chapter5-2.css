@@ -1,0 +1,70 @@
+@CHARSET "UTF-8";
+	#bookstore{
+
+		width:1000px;
+
+		height: 330px;
+
+		border: 10px solid gray;
+
+		margin: 20px auto;
+
+		padding:5px;
+
+		background-image: url(../img/brickwall.png)
+
+	}
+
+	.book{
+
+		border: 3px solid white;
+
+		width:320px;
+
+		height: 150px;	
+
+		float: left;
+
+		margin: 3px;
+
+	}
+
+	.book img{
+
+		width:100px;
+
+	}
+
+	.book div{
+
+		display: inline-block;
+
+		float: left;
+
+		margin: 5px;
+
+	}
+
+	.book p{
+
+		margin: 10px 0px 0px 0px;
+
+	}
+
+	#cart{
+
+		border-radius: 10%;
+
+		border: 10px solid gray;
+
+		width: 300px;
+
+		margin: 20px auto;
+
+	}
+
+	#cart img{
+
+		width: 300px;
+
+	}

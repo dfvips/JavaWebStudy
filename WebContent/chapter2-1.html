@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<style>
+td{
+	border:1px #000000 solid;
+}
+#button{
+	text-align: center;
+	margin-left: -320px;
+}
+</style>
+</head>
+<body>
+<div id="button">
+<button type="button" id="btn" onclick="show();">获取</button>
+</div>
+<div id="table"></div>
+<script>
+function show(){
+	xmlhttp=new XMLHttpRequest();
+	if (window.XMLHttpRequest){
+	  // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+	  xmlhttp=new XMLHttpRequest();
+	  }else{
+	  // IE6, IE5 浏览器执行代码
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	  xmlhttp.open("POST","xml/chapter2-1.xml",true);
+	  xmlhttp.onreadystatechange=function(){		
+		    if (xmlhttp.readyState==4 && xmlhttp.status==200){
+		       var xmlDoc=xmlhttp.responseXML;   
+		       var rows=xmlDoc.getElementsByTagName("team")[0].childElementCount;
+			   var cols=xmlDoc.getElementsByTagName("student")[0].childElementCount;
+			   var tab='<h1 style="text-align:center;">XML解析</h1>';
+			   tab+="<table style='border:1px #000000 solid;text-align:center;margin:0 auto;'>"+
+			   "<tr><td style='border:1px #000000 solid;'>学号</td><td style='border:1px #000000 solid;'>姓名</td><td style='border:1px #000000 solid;'>性别</td><td style='border:1px #000000 solid;'>年龄</td><td style='border:1px #000000 solid;'>系部</td><td style='border:1px #000000 solid;'>职位</td></tr>";
+			    for(var i=0;i<rows;i++){
+			        tab+='<tr>'
+			        for(var j=0;j<cols;j++){
+			            tab+="<td style='border:1px #000000 solid;'>"
+			            	+xmlDoc.getElementsByTagName("student")[i].children[j].childNodes[0].nodeValue+"</td>" 
+			        }
+			        	tab+="<td style='border:1px #000000 solid;'>"+xmlDoc.getElementsByTagName("student")[i].getAttribute("role")+"</td>" 
+			         tab+='</tr>'
+			    }    
+			    tab+='</table>';
+			    document.getElementById("table").innerHTML=tab;
+			    }
+		}
+		 xmlhttp.send();
+}
+
+</script>
+</body>
+</html>

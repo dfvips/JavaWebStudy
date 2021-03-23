@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	单价：<input type="number" value="" id="price" /></br></br>
+	数量：<input type="number" value="" id="num" /></br></br>
+	<input type="button" value="总价" onclick="count();" />&nbsp;&nbsp;&nbsp;<span id="result"></span></br></br>
+</body>
+<script>
+	function count(){
+	document.getElementById("result").innerHTML="¥"+document.getElementById("price").value*document.getElementById("num").value;
+	}
+</script>
+</html>

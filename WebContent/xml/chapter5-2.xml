@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bookstore SYSTEM "../dtd/chapter5-1.dtd" >
+<bookstore>
+  <book>
+    <b_id>书号：978-7-115-50506-4</b_id>
+    <b_name> 书名：Python网络爬虫技术</b_name>
+    <b_author> 作者：张良均</b_author>
+    <b_price> 价格：32元</b_price>
+    <b_img>img/img1.jpg</b_img>
+  </book>
+  <book>
+      <b_id>书号：978-7-111-52118-1</b_id>
+      <b_name> 书名：数据结构与算法</b_name>
+      <b_author>作者：裘宗燕</b_author>
+      <b_price> 价格：45元</b_price>
+      <b_img>img/img2.jpg</b_img>
+  </book>
+  <book>
+      <b_id>书号：978-7-111-52627-8</b_id>
+      <b_name> 书名：Python程序设计</b_name>
+      <b_author> 作者：戴维.施耐德</b_author>
+      <b_price> 价格：79元</b_price>
+      <b_img>img/img3.jpg</b_img>
+  </book>
+  <book>
+      <b_id>书号：978-7-111-55419-6</b_id>
+      <b_name> 书名：差分进化算法</b_name>
+      <b_author> 作者：肯尼斯.普莱斯</b_author>
+      <b_price> 价格：69元</b_price>
+      <b_img>img/img4.jpg</b_img>
+  </book>
+  <book>
+      <b_id>书号：978-7-111-59261-7</b_id>
+      <b_name> 书名：Python语言实用教程</b_name>
+      <b_author> 作者：钱雪忠</b_author>
+      <b_price> 价格：49元</b_price>
+      <b_img>img/img5.jpg</b_img>
+  </book>
+  <book>
+      <b_id>书号：978-7-111-55902-3</b_id>
+      <b_name> 书名：营销数据科学</b_name>
+      <b_author> 作者：托马斯.米勒</b_author>
+      <b_price> 价格：79元</b_price>
+      <b_img>img/img6.jpg</b_img>
+  </book>
+</bookstore>

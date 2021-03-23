@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT team (student+)>
+<!ELEMENT student (s_id,s_name,s_sgender,s_age,s_department)>
+<!ELEMENT s_id (#PCDATA)>
+<!ELEMENT s_name (#PCDATA)>
+<!ELEMENT s_sgender (#PCDATA)>
+<!ELEMENT s_age (#PCDATA)>
+<!ELEMENT s_department (#PCDATA)>
+<!ATTLIST student role (技术总监|财务总监|生产总监|采购总监|销售总监) "技术总监">

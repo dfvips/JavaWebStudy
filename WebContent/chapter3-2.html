@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	用户名：
+	<input type="text" name="username" id="username" /> 密码：
+	<input type="text" name="password" id="password" />
+	<input type="submit" value="提交" onclick="submit()" />&nbsp;&nbsp;
+	<span id="tip" style="color: red"></span>
+</body>
+<script>
+
+function submit(){
+
+    var username=document.getElementById("username").value;
+    var password=document.getElementById("password").value;
+	xmlhttp=new XMLHttpRequest();
+	if (window.XMLHttpRequest){
+	  // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+	  xmlhttp=new XMLHttpRequest();
+	  }else{
+	  // IE6, IE5 浏览器执行代码
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	  xmlhttp.open("POST","LoginServlet2",true);
+	  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded"); 
+	  xmlhttp.send("username="+username+"&password="+password);
+	  xmlhttp.onreadystatechange=function(){		
+    	if (xmlhttp.readyState==4 && xmlhttp.status==200){
+    		var result=xmlhttp.responseText;
+    		if(result=="success"){
+    			document.getElementById("tip").innerHTML="用户名密码正确";
+    		}
+    		if(result=="error"){
+    			document.getElementById("tip").innerHTML="用户名密码错误";
+    		}
+    	}
+	}
+}
+</script>
+</html>

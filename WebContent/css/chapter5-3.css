@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+body{
+
+	text-align: center; 
+
+	padding: 20px;
+
+}
+
+table{
+
+	margin: 10px auto;
+
+	background-color:yellow;
+
+	box-shadow: 10px 10px 5px #888888;
+
+	border:2px solid;
+
+	border-radius:5px;
+
+}
+
+table td{
+
+	padding: 10px;
+
+	border-top: 1px solid black;
+
+}

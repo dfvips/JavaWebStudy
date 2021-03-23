@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+body,html{
+	height: 90%;
+}
+#chat{
+	width:100%;
+	height: 90%;
+	text-align: center; 
+	border: 1px gray solid;
+}
+#button{
+	width:100%;
+	text-align: center; 
+	margin-top: 10px;
+}
+</style>
+</head>
+<body>
+<div id="chat"><p>聊天记录</p></div>
+<div id="button">
+<span id="sp"></span><input type="text" id="message" value=""/>&nbsp;<button onclick="sendmsg()">发送</button>
+</div>
+<script>
+window.onload=function(){
+			  refresh('');
+              setInterval("refresh('')",1000);
+            }
+function sendmsg(){
+	var messages=document.getElementById("message").value;
+	if(messages==""){
+		alert("消息不能为空");
+	}
+	else{
+		refresh(messages);
+		document.getElementById("message").value="";
+	}
+}
+function refresh(messages){
+	xmlhttp=new XMLHttpRequest();
+	if (window.XMLHttpRequest){
+	  // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+	  xmlhttp=new XMLHttpRequest();
+	  }else{
+	  // IE6, IE5 浏览器执行代码
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	  xmlhttp.open("POST","Chapter4_2Servlet",true);
+	  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded"); 
+	  xmlhttp.send("messages="+messages);
+	  xmlhttp.onreadystatechange=function(){		
+		if (xmlhttp.readyState==4 && xmlhttp.status==200){
+			var Text=xmlhttp.responseText.split("&");
+			var result=xmlhttp.responseText.replace(Text[0]+"&", "");
+			if(Text[0]==""){
+				window.location.href="chapter4-1.html";
+			}
+			document.getElementById("sp").innerHTML=Text[0]+"：";
+			document.getElementById("chat").innerHTML="<p>聊天记录<p>"+result;
+		}
+}
+}
+</script>
+</body>
+</html>
